@@ -10,8 +10,6 @@ except:
     print("Error Reading the config.json file.")
     exit()
 
-print(privateKey)
-
 
 headers = {
     "accept": "application/json",
@@ -36,7 +34,7 @@ def getContentOfBlock(blockID):
         print("Something went wrong")
         return -1
 
-def updateContentOfParagraphBlock(blockID, newContent):
+def updateContentOfParagraphBlock(blockID, newContent): #returns the response code of updating the content of a paragraph block in notion
     try:
         payload = {"paragraph" : {'color': 'default', 'text': [{'type': 'text', 'text': {'content': newContent, 'link': None}, 'annotations': {'bold': False, 'italic': False, 'strikethrough': False, 'underline': False, 'code': False, 'color': 'default'}, 'plain_text': newContent, 'href': None}]}}
         blockurl = "https://api.notion.com/v1/blocks/{}".format(blockID)
@@ -46,19 +44,16 @@ def updateContentOfParagraphBlock(blockID, newContent):
         print("something went wrong")
         return -1
 
-def getBlockIdsFromPage(pageID):
+def getBlockIdsFromPage(pageID): #returns a list of the blockID's of all the blocks in a page (empty lines are included as blocks)
     try:
         blockurl = "https://api.notion.com/v1/blocks/{}/children?page_size=100".format(pageID)
         blockResponse = requests.get(blockurl, headers=headers)
         jsonBlock = json.loads(blockResponse.text)
-        print(len(jsonBlock["results"]))
         result = []
         for block in jsonBlock["results"]:
             result.append(block["id"])
+        return result
     except:
         print("Something went wrong")
         return -1
-
-
-
 

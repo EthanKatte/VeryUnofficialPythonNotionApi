@@ -2,7 +2,7 @@
 This is a set of methods that are useful when trying to manipulate the Notion web API through Python. This is a VERY unofficial program, and is predominately used for my own development and exploration.
 
 
-#GETTING STARTED
+# GETTING STARTED
 To get started create a new integration with notion at https://www.notion.so/my-integrations and generate an API Key
 Copy that API Key into the config.json file.
 Python is now linked to your notion account. 

@@ -10,5 +10,5 @@ Python is now linked to your notion account.
 This program has no UI yet. To get blockID's or pageID's referenced in the code, open notion and click the `copy link to block` or `copy link to page` and get the encrypted string at the end of the URL. 
 That is the ID for the element.
 
-#use https://pypi.org/project/notion/ for anything important
+## use https://pypi.org/project/notion/ for anything important
 
